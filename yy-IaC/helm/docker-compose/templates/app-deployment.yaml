@@ -12,7 +12,7 @@ metadata:
     kompose.service.type: clusterip
   name: app
 spec:
-  replicas: 10
+  replicas: 4
   selector:
     matchLabels:
       io.kompose.service: app

@@ -7,7 +7,7 @@ services:
       - "8081:80"
     deploy:
       mode: replicated
-      replicas: 10
+      replicas: 4
       resources:
         limits:
           memory: 2048M
