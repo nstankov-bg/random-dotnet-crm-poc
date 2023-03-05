@@ -6,17 +6,14 @@ services:
     ports:
       - "8081:80"
     deploy:
+      mode: replicated
       replicas: 10
-      update_config:
-        delay: 10s
-        parallelism: 1
-        order: start-first
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 512M
       labels:
         kompose.service.type: nodeport
-        kompose.service.expose: "localhost:80"
+        kompose.service.expose: "testdotnet.nstankov.com"
         kompose.service.group: app

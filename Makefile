@@ -65,6 +65,9 @@ deploy:
 destroy:
 	kubectl delete ns test-app
 
+portfwd:
+	kubectl port-forward app 8082:80
+
 git-all:
 	git add .
 	git commit -m "update"

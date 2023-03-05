@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml -c
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+    kompose.service.expose: testdotnet.nstankov.com
+    kompose.service.group: app
+    kompose.service.type: nodeport
+  name: app
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -c
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/random-dotnet-crm-poc-default: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+        - image: nikoogle/test-dotnet-app-public:latest
+          name: app
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "2147483648"
+            requests:
+              memory: "536870912"
+      restartPolicy: Always
+status: {}
