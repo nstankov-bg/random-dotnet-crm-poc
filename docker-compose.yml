@@ -17,6 +17,6 @@ services:
         max_attempts: 3
         window: 120s
       labels:
-        kompose.service.type: loadbalancer
+        kompose.service.type: nodeport
         kompose.service.expose: "localhost:80"
         kompose.service.group: app

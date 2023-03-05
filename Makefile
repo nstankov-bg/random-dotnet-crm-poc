@@ -64,3 +64,8 @@ deploy:
 	helm install --create-namespace -n test-app yy-IaC/helm/docker-compose --generate-name
 destroy:
 	kubectl delete ns test-app
+
+git-all:
+	git add .
+	git commit -m "update"
+	git push

@@ -1,0 +1,12 @@
+project: default
+source:
+  repoURL: "https://github.com/nstankov-bg/random-dotnet-crm-poc.git"
+  path: yy-IaC/helm/docker-compose
+  targetRevision: HEAD
+destination:
+  server: "https://kubernetes.default.svc"
+  namespace: default
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
