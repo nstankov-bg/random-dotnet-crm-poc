@@ -1,5 +1,4 @@
-.PHONY: build
-
+# Define variables
 DOCKER_IMAGE_NAME = test-dotnet-app-public
 DOCKER_REGISTRY = docker.io
 DOCKER_REPO = nikoogle
@@ -7,7 +6,21 @@ DOCKER_TAG = latest
 DOCKER_PLATFORMS = linux/arm64
 DOCKER_TARGET = runtime
 
-init-www:
+BASE_FOLDER = yy-IaC/tests
+BASE_INTEGRATION_FOLDER = integration
+BASE_LOAD_FOLDER = stress
+ENDPOINT_TO_BE_TESTED = api/weather
+LOAD_TEST_SCRIPT = load-test.js
+SOAK_TEST_SCRIPT = soak-test.js
+INTEGRATION_TEST_SCRIPT = integration-test.js
+
+# Define phony targets
+.PHONY: all build combo down extract git-all hosts-entry integration-test kompose load-test portfwd soak-test up
+
+# Define targets
+all: combo
+
+utility-www:
 	git submodule add https://github.com/yemiwebby/docker-dotnet-api.git www
 
 build:
@@ -21,58 +34,42 @@ build:
 		. --no-cache \
 		--push
 
-up:
+local-up:
 	docker compose up
-down: 
+
+local-down: 
 	docker compose down --remove-orphans
 
-extract:
-	docker extract 
+local-combo: down build up
 
-combo: build down up
-
-# Variables
-TEST_RUNNER=k6 run
-BASE_FOLDER=yy-IaC/tests
-BASE_INTEGRATION_FOLDER=integration
-BASE_LOAD_FOLDER=stress
-ENDPOINT_TO_BE_TESTED=api/weather
-LOAD_TEST_SCRIPT=load-test.js
-SOAK_TEST_SCRIPT=soak-test.js
-INTEGRATION_TEST_SCRIPT=integration-test.js
-
-# Targets
-load-test:
+test-load:
 	$(TEST_RUNNER) $(BASE_FOLDER)/$(BASE_LOAD_FOLDER)/$(ENDPOINT_TO_BE_TESTED)/$(LOAD_TEST_SCRIPT)
 
-soak-test:
+test-soak:
 	$(TEST_RUNNER) $(BASE_FOLDER)/$(BASE_LOAD_FOLDER)/$(ENDPOINT_TO_BE_TESTED)/$(SOAK_TEST_SCRIPT)
 
-integration-test:
+test-integration:
 	$(TEST_RUNNER) $(BASE_FOLDER)/$(BASE_INTEGRATION_FOLDER)/$(ENDPOINT_TO_BE_TESTED)/$(INTEGRATION_TEST_SCRIPT)
 
+utility-kompose: 
+	-kompose convert -f docker-compose.yml -c && rm -rf yy-IaC/helm/* && mv docker-compose yy-IaC/helm
 
-#Kompose the docker-compose.yml file to Kubernetes
+utility-port:
+	kubectl expose service app --type=NodePort --name=app --port=80 --target-port=80
 
-kompose: 
-	-kompose convert -f docker-compose.yml -c
-	-rm -rf yy-IaC/helm/*
-	-mv docker-compose yy-IaC/helm && rm -rf docker-compose
-
-#Deploy to k3d
-deploy:
-	helm install --create-namespace -n test-app yy-IaC/helm/docker-compose --generate-name
-destroy:
-	kubectl delete ns test-app
-
-portfwd:
-	kubectl port-forward app 8082:80
-
-hosts-entry:
-	#create testdotnet.nstankov.com on macOS
+utility-hosts:
 	sudo sh -c "echo '127.0.0.1 testdotnet.nstankov.com' >> /etc/hosts"
 
 git-all:
-	git add .
-	git commit -m "update"
-	git push
+	git add . && git commit -m "update" && git push
+
+# Grouped targets
+combo: local-combo
+portfwd: utility-port
+hosts-entry: utility-hosts
+kompose: utility-kompose
+
+# Aliases for some targets
+up: local-up
+down: local-down
+extract: build
