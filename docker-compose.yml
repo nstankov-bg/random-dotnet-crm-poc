@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  app:
+    image: nikoogle/test-dotnet-app-public:latest
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 10
+      update_config:
+        delay: 10s
+        parallelism: 1
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      labels:
+        kompose.service.type: loadbalancer
+        kompose.service.expose: "localhost:80"
+        kompose.service.group: app
