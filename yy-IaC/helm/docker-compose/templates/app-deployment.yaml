@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: app
     kompose.service.expose: testdotnet.nstankov.com
     kompose.service.group: app
-    kompose.service.type: nodeport
+    kompose.service.type: clusterip
   name: app
 spec:
   replicas: 10

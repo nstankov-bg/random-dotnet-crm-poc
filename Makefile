@@ -68,6 +68,10 @@ destroy:
 portfwd:
 	kubectl port-forward app 8082:80
 
+hosts-entry:
+	#create testdotnet.nstankov.com on macOS
+	sudo sh -c "echo '127.0.0.1 testdotnet.nstankov.com' >> /etc/hosts"
+
 git-all:
 	git add .
 	git commit -m "update"

@@ -14,6 +14,6 @@ services:
         reservations:
           memory: 512M
       labels:
-        kompose.service.type: nodeport
+        kompose.service.type: clusterip
         kompose.service.expose: "testdotnet.nstankov.com"
         kompose.service.group: app
