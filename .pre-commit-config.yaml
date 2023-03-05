@@ -2,8 +2,17 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
+      - id: check-byte-order-marker
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      #Basic Security
+      - id: detect-aws-credentials
+      - id: detect-private-key
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.77.1 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
     hooks:
