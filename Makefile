@@ -37,7 +37,7 @@ build:
 local-up:
 	docker compose up
 
-local-down: 
+local-down:
 	docker compose down --remove-orphans
 
 local-combo: down build up
@@ -51,7 +51,7 @@ test-soak:
 test-integration:
 	$(TEST_RUNNER) $(BASE_FOLDER)/$(BASE_INTEGRATION_FOLDER)/$(ENDPOINT_TO_BE_TESTED)/$(INTEGRATION_TEST_SCRIPT)
 
-utility-kompose: 
+utility-kompose:
 	-kompose convert -f docker-compose.yml -c && rm -rf yy-IaC/helm/* && mv docker-compose yy-IaC/helm
 
 utility-port:
@@ -60,7 +60,15 @@ utility-port:
 utility-hosts:
 	sudo sh -c "echo '127.0.0.1 testdotnet.nstankov.com' >> /etc/hosts"
 
-git-all:
+utility-macOS-install-pre-reqs:
+	brew install kompose
+	brew install helm
+	brew install k6
+	brew install terraform
+	brew install pre-commit
+	brew install terraform-docs
+
+git-fast:
 	git add . && git commit -m "update" && git push
 
 # Grouped targets

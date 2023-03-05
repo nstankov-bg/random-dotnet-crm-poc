@@ -35,7 +35,7 @@ RUN  mkdir /tmp/newrelic-dotnet-agent \
     && echo "Downloading: $NEW_RELIC_DOWNLOAD_URI into $(pwd)" \
     && wget -O - "$NEW_RELIC_DOWNLOAD_URI" | gzip -dc | tar xf -
 
-#Get the NR license key from secret 
+#Get the NR license key from secret
 RUN --mount=type=secret,id=newrelic_license_key \
     export NR_LICENSE_KEY=$(cat /run/secrets/newrelic_license_key)
 

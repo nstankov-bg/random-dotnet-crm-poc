@@ -3,6 +3,6 @@ variable "account_id" {
   type        = string
 }
 variable "api_key" {
-    description = "Your New Relic User API key"
-    type        = string
-    }
+  description = "Your New Relic User API key"
+  type        = string
+}
