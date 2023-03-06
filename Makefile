@@ -23,13 +23,14 @@ all: combo
 utility-www:
 	git submodule add https://github.com/yemiwebby/docker-dotnet-api.git www
 
-build: #Still uses this, as Kaniko via Waypoint does not yet support passing secrets
+build: git-release #Still uses this, as Kaniko via Waypoint does not yet support passing secrets
 	docker buildx build \
 		--platform $(DOCKER_PLATFORMS) \
 		--build-arg DOCKER_REGISTRY=$(DOCKER_REGISTRY) \
 		--build-arg DOCKER_REPO=$(DOCKER_REPO) \
 		--secret id=newrelic_license_key,env=NR_LICENSE_KEY \
-		-t $(DOCKER_REGISTRY)/$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):$(DOCKER_TAG) \
+		--tag $(DOCKER_REGISTRY)/$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):$(VERSION) \
+		--tag $(DOCKER_REGISTRY)/$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):latest \
 		--target serve \
 		. --no-cache \
 		--push
@@ -61,6 +62,7 @@ utility-hosts:
 	sudo sh -c "echo '127.0.0.1 testdotnet.nstankov.com' >> /etc/hosts"
 
 utility-macOS-install-pre-reqs:
+	brew install gh
 	brew tap hashicorp/tap
 	brew install kompose
 	brew install helm
@@ -71,9 +73,31 @@ utility-macOS-install-pre-reqs:
 	brew install buildkit
 	brew install pre-commit
 	brew install terraform-docs
+	brew install gsed #because macos's sed sucks
 
 git-fast:
 	git add . && git commit -m "update" && git push
+
+git-pr:
+	gh pr create --title "Title of the PR" --body "Description of the PR"
+
+VERSION = ${shell gh release list | head -n 1 | awk '{print $$3}'}
+NEXT_VERSION = ${shell echo $(VERSION) | awk -F. '{$$NF = $$NF + 1;} 1' | sed 's/ /./g'}
+
+
+git-fast:
+	@echo "Fast git add"
+	@git add -A
+	@git commit -m "Fast commit"
+	@git push
+
+git-latest-release:
+	@echo "Latest release is $(VERSION)"
+	@echo "Next release is $(NEXT_VERSION)"
+
+git-release: git-latest-release
+	@echo "create release with GH"
+	gh release create $(NEXT_VERSION) --notes "Release $(NEXT_VERSION)"
 
 # Grouped targets
 combo: local-combo
