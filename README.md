@@ -2,6 +2,8 @@
 
 _Demos are so `2010`. Just head over to the [Pull Requests](https://github.com/nstankov-bg/random-dotnet-crm-poc/pull/2) section in Github, and experience the beauty of [Ehemerial Environments](https://ephemeralenvironments.io/) yourself!_
 
+Yet still: https://app-nstankov-bg-random-dotnet-crm-poc-pr-2.cloud.okteto.net/api/weather
+
 ## 1 Minute Start
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=feature%2Fokteto-showoff&repo=609815328)
 
