@@ -20,6 +20,8 @@ _Demos are so 2010. Just head over to the [Pull Requests](https://github.com/nst
 
 ## 🧪 BETA Features:
 
+-   🐳 Compatible with VSCode Dev Containers for project setup & isolation ( 1m fast start )
+-   🐳 Compatible with Github CodeSpaces for project setup & isolation ( 1m fast start ), at an expense
 -   🔭 Trying out Hashicorp Waypoint, because why not.
 -   📦 Uses Okteto to deploy ephemeral environments for testing, debugging, and reviewing
 
