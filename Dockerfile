@@ -1,3 +1,25 @@
+# Development Stage
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS development
+
+SHELL ["/bin/bash", "-c"]
+# Set a unique version for cache busting
+ARG CACHEBUST=1
+
+WORKDIR /src
+
+# Copy just the .csproj files first for caching
+COPY www/*.csproj ./
+
+# Restore dependencies
+RUN dotnet restore
+
+# Copy the rest of the source code
+COPY ./www .
+
+# Set the entrypoint for running the app
+ENTRYPOINT ["dotnet", "watch", "run"]
+
+
 # Build Stage
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 

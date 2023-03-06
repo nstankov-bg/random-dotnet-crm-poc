@@ -2,7 +2,8 @@ version: "3.9"
 
 services:
   app:
-    image: nikoogle/test-dotnet-app-public:latest
+    build: .
+
     ports:
       - "8085:80"
     deploy:
