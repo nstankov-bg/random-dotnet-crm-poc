@@ -1,5 +1,3 @@
-📜 Makefile for Nikolay's .NET POC 🚀
-
 ## 📜 SRC Description:
 
 -   A random-off-the shelf stateless app ( because stateless means happy Ops ) app, that simulates a weather API at /api/weather
