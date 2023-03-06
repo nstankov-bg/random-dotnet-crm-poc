@@ -15,3 +15,8 @@
 
 - 🔭 Trying out Hashicorp Waypoint, because why not.
 - 📦 Uses Okteto to deploy ephemeral environments for testing, debugging, and reviewing
+
+##🛠️TODO:
+
+- Implement SEMVER
+- Implement Github Actions

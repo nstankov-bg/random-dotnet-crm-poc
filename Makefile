@@ -3,7 +3,7 @@ DOCKER_IMAGE_NAME = test-dotnet-app-public
 DOCKER_REGISTRY = docker.io
 DOCKER_REPO = nikoogle
 DOCKER_TAG = latest
-DOCKER_PLATFORMS = linux/arm64
+DOCKER_PLATFORMS = linux/arm64,linux/amd64
 DOCKER_TARGET = runtime
 
 BASE_FOLDER = yy-IaC/tests
@@ -34,6 +34,7 @@ build: git-release #Still uses this, as Kaniko via Waypoint does not yet support
 		--target serve \
 		. --no-cache \
 		--push
+
 
 local-up:
 	docker compose up
