@@ -23,7 +23,7 @@ all: combo
 utility-www:
 	git submodule add https://github.com/yemiwebby/docker-dotnet-api.git www
 
-build:
+build: #Still uses this, as Kaniko via Waypoint does not yet support passing secrets
 	docker buildx build \
 		--platform $(DOCKER_PLATFORMS) \
 		--build-arg DOCKER_REGISTRY=$(DOCKER_REGISTRY) \
