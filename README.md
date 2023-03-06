@@ -1,5 +1,9 @@
 📜 Makefile for Nikolay's .NET POC 🚀
 
+## 📜 SRC Description:
+
+- A random-off-the shelf app, that simulates a weather API at /api/weather
+
 🚀 Features:
 
 - 🐳 Uses Docker Buildx for cross-architecture image builds (Welcome to the age of Apple Silicon)
