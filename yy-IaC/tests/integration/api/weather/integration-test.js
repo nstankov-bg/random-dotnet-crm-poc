@@ -1,5 +1,5 @@
 import http from "k6/http";
-import { check, sleep } from "k6";
+import { check } from "k6";
 
 export default function () {
     const url =
@@ -10,6 +10,4 @@ export default function () {
         "status is 200": (r) => r.status === 200,
         "response has data": (r) => r.json().length > 0,
     });
-
-    sleep(1);
 }
