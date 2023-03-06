@@ -1,4 +1,6 @@
-📜 Makefile for Nikolay's .NET POC 🚀
+## Demo:
+
+_Demos are so 2010. Just head over to the [Pull Requests](https://github.com/nstankov-bg/random-dotnet-crm-poc/pull/2) section in Github, and experience the beauty of [Ehemerial Environments](https://ephemeralenvironments.io/) yourself!_
 
 ## 📜 SRC Description:
 
