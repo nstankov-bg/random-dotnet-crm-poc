@@ -1,3 +1,7 @@
+## Motivation:
+
+* A demonstration of a modern infrastructure suite, with instrumentation and cloud-based development experience. The source itself, carries no value on its own, but this is rather an exercise in DevOps, around a random .NET application.
+
 ## Demo:
 
 _Demos are so `2010`. Just head over to the [Pull Requests](https://github.com/nstankov-bg/random-dotnet-crm-poc/pull/2) section in Github, and experience the beauty of [Ehemerial Environments](https://ephemeralenvironments.io/) yourself!_
