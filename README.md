@@ -11,22 +11,22 @@ _Demos are so 2010. Just head over to the [Pull Requests](https://github.com/nst
 
 ## 🚀 Features:
 
--   🐳 Uses Docker Buildx for cross-architecture image builds (Welcome to the age of Apple Silicon)
--   🕸️ Uses NewRelic as an APM to establish tracing & basic SLAs
--   🐳 Uses k3d and/or compose with backwards compatibility for local development
--   🚀 Uses Kompose for compose -> helm conversion
--   🚀 Uses ArgoCD for best practice deployments & self-healing
--   🛠️ Uses Make to establish quality of life improvements
--   🐛 Uses K6 (open source) to do Continuous Stress Testing & Implementation Testing cross-platform
--   🔗 Uses github submodules to establish basic repository templating
--   📝 Uses EditorConfig to establish basic code style
+-   🐳 Uses [Docker Buildx](https://docs.docker.com/engine/reference/commandline/buildx/) for cross-architecture image builds (Welcome to the age of Apple Silicon)
+-   🕸️ Uses [NewRelic](https://newrelic.com) as an [APM to establish tracing & basic SLAs](https://docs.newrelic.com/docs/apm/agents/net-agent/getting-started/introduction-new-relic-net/)
+-   🐳 Uses [k3d](https://rancherdesktop.io) and/or [Compose](https://docs.docker.com/compose/compose-file/) with backwards compatibility for local development
+-   🚀 Uses [Kompose](https://kompose.io/conversion/) for compose -> helm conversion
+-   🚀 Uses [ArgoCD](https://www.youtube.com/watch?v=ffu7tGtjevU) for best practice deployments & ARM & self-healing
+-   🛠️ Uses [Make](https://opensource.com/article/18/8/what-how-makefile) to establish quality of life improvements
+-   🐛 Uses (now Grafana)[K6](https://k6.io/about/) (open source) to do Continuous Stress Testing & Implementation Testing cross-platform
+-   🔗 Uses (Git-submodules)[https://github.blog/2016-02-01-working-with-submodules/] to establish basic repository templating
+-   📝 Uses [EditorConfig](https://editorconfig.org) to establish basic code style
 
 ## 🧪 BETA Features:
 
--   🐳 Compatible with VSCode Dev Containers for project setup & isolation ( 1m fast start )
--   🐳 Compatible with Github CodeSpaces for project setup & isolation ( 1m fast start ), at an expense
--   🔭 Trying out Hashicorp Waypoint, because why not.
--   📦 Uses Okteto to deploy ephemeral environments for testing, debugging, and reviewing
+-   🐳 Compatible with [VSCode Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) for project setup & isolation ( 1m fast start )
+-   🐳 Compatible with [Github CodeSpaces](https://github.com/features/codespaces) for project setup & isolation ( 1m fast start ), at an expense
+-   🔭 Trying out [Hashicorp Waypoint](https://www.waypointproject.io), because why not.
+-   📦 Uses [Okteto](https://www.okteto.com/videos/) to deploy [Ephemeral Environments](http://ephemeralenvironments.io) for testing, debugging, and reviewing
 
 ## 🛠️TODO:
 
