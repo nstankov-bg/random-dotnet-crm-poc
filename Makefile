@@ -61,10 +61,14 @@ utility-hosts:
 	sudo sh -c "echo '127.0.0.1 testdotnet.nstankov.com' >> /etc/hosts"
 
 utility-macOS-install-pre-reqs:
+	brew tap hashicorp/tap
 	brew install kompose
 	brew install helm
 	brew install k6
-	brew install terraform
+	brew install hashicorp/tap/terraform
+	brew install hashicorp/tap/packer
+	brew install hashicorp/tap/waypoint
+	brew install buildkit
 	brew install pre-commit
 	brew install terraform-docs
 
