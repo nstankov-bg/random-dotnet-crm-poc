@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  app:
+    image: nikoogle/test-dotnet-app-public:latest
+    ports:
+      - "80:80"

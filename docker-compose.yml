@@ -4,7 +4,7 @@ services:
   app:
     image: nikoogle/test-dotnet-app-public:latest
     ports:
-      - "80:80"
+      - "8085:80"
     deploy:
       mode: replicated
       replicas: 4

@@ -11,6 +11,7 @@
 - 🐛 Uses K6 (open source) to do Continuous Stress Testing & Implementation Testing cross-platform
 - 🔗 Uses github submodules to establish basic repository templating
 
-🧪 BETA Features:
+  🧪 BETA Features:
 
 - 🔭 Trying out Hashicorp Waypoint, because why not.
+- 📦 Uses Okteto to deploy ephemeral environments for testing, debugging, and reviewing
