@@ -20,6 +20,7 @@ _Demos are so 2010. Just head over to the [Pull Requests](https://github.com/nst
 -   🐛 Uses (now Grafana)[K6](https://k6.io/about/) (open source) to do Continuous Stress Testing & Implementation Testing cross-platform
 -   🔗 Uses (Git-submodules)[https://github.blog/2016-02-01-working-with-submodules/] to establish basic repository templating
 -   📝 Uses [EditorConfig](https://editorconfig.org) to establish basic code style
+-   🛠️ Uses [Pre-Commit](http://pre-commit.com) to enforce style, very basic security and more.
 
 ## 🧪 BETA Features:
 
