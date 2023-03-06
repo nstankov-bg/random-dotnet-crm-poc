@@ -2,9 +2,9 @@
 
 ## 📜 SRC Description:
 
-- A random-off-the shelf app, that simulates a weather API at /api/weather
+- A random-off-the shelf stateless app ( because stateless means happy Ops ) app, that simulates a weather API at /api/weather
 
-🚀 Features:
+## 🚀 Features:
 
 - 🐳 Uses Docker Buildx for cross-architecture image builds (Welcome to the age of Apple Silicon)
 - 🕸️ Uses NewRelic as an APM to establish tracing & basic SLAs
@@ -15,12 +15,12 @@
 - 🐛 Uses K6 (open source) to do Continuous Stress Testing & Implementation Testing cross-platform
 - 🔗 Uses github submodules to establish basic repository templating
 
-  🧪 BETA Features:
+## 🧪 BETA Features:
 
 - 🔭 Trying out Hashicorp Waypoint, because why not.
 - 📦 Uses Okteto to deploy ephemeral environments for testing, debugging, and reviewing
 
-##🛠️TODO:
+## 🛠️TODO:
 
 - Implement SEMVER
 - Implement Github Actions

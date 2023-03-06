@@ -76,8 +76,25 @@ utility-macOS-install-pre-reqs:
 	brew install terraform-docs
 	brew install gsed #because macos's sed sucks
 
-git-fast:
-	git add . && git commit -m "update" && git push
+#prompt user for ticket number
+TICKET = $(shell read -p "Enter ticket number: " ticket; echo $$ticket)
+#prompt user for commit message, enter your commit message
+MSG = $(shell read -p "Enter commit message: " msg; echo $$msg)
+#prompt user for time spent
+TIME = $(shell read -p "Enter time spent: " time; echo $$time)
+
+git-add:
+	git add .
+
+git-commit:
+	git commit -m "$(TICKET)-$(TIME) $(MSG)"
+
+#Current branch
+BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+git-origin:
+	git push origin $(BRANCH)
+
+git-fast: git-add git-commit git-origin
 
 git-pr:
 	gh pr create --title "Title of the PR" --body "Description of the PR"
