@@ -9,6 +9,7 @@ _Demos are so `2010`. Just head over to the [Pull Requests](https://github.com/n
 Yet still: https://app-nstankov-bg-random-dotnet-crm-poc-pr-2.cloud.okteto.net/api/weather
 
 ## 1 Minute Start
+
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=feature%2Fokteto-showoff&repo=609815328)
 
 ## 📜 SRC Description:
@@ -34,6 +35,7 @@ Yet still: https://app-nstankov-bg-random-dotnet-crm-poc-pr-2.cloud.okteto.net/a
 -   🐳 Compatible with [Github CodeSpaces](https://github.com/features/codespaces) for project setup & isolation ( 1m fast start ), at an expense
 -   🔭 Trying out [Hashicorp Waypoint](https://www.waypointproject.io), because why not.
 -   📦 Uses [Okteto](https://www.okteto.com/videos/) to deploy [Ephemeral Environments](http://ephemeralenvironments.io) for testing, debugging, and reviewing
+-   🐳 Uses [DockerSlim/Slim.ai](http://slim.ai) to reduce image size, and improve security(drastically).
 
 ## 🛠️TODO:
 

@@ -28,10 +28,13 @@ spec:
         io.kompose.service: app
     spec:
       containers:
-        - image: nikoogle/test-dotnet-app-public:latest
+        - image: nikoogle/test-dotnet-app-public:latest-slim
           name: app
           ports:
             - containerPort: 80
+          env:
+            - name: DOTNET_USE_POLLING_FILE_WATCHER
+              value: "true"
           resources:
             limits:
               memory: "2147483648"

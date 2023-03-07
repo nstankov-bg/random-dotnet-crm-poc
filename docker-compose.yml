@@ -2,13 +2,15 @@ version: "3.9"
 
 services:
   app:
-    build: .
-
+    image: nikoogle/test-dotnet-app-public:latest-slim
+    platform: linux/amd64
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=true
     ports:
       - "8085:80"
     deploy:
       mode: replicated
-      replicas: 4
+      replicas: 1
       resources:
         limits:
           memory: 2048M

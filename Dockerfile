@@ -80,4 +80,4 @@ COPY --from=build /src/out .
 #Cleanup
 
 # Set the entrypoint
-ENTRYPOINT ["dotnet", "docker-dotnet-api.dll"]
+ENTRYPOINT ["dotnet", "docker-dotnet-api.dll", "--disable-features=FileWatching"]
