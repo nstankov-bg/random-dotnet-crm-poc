@@ -33,5 +33,5 @@ spec:
               cpu: 0.25
           livenessProbe:
             httpGet:
-              path: /api/health
+              path: /api/weather
               port: 80
