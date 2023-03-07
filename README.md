@@ -1,6 +1,6 @@
 ## Motivation:
 
-* A demonstration of a modern infrastructure suite, with instrumentation and cloud-based development experience. The source itself, carries no value on its own, but this is rather an exercise in DevOps, around a random .NET application.
+-   A demonstration of a modern infrastructure suite, with instrumentation and cloud-based development experience. The source itself, carries no value on its own, but this is rather an exercise in DevOps, around a random .NET application.
 
 ## Demo:
 
@@ -28,6 +28,7 @@ Yet still: https://app-nstankov-bg-random-dotnet-crm-poc-pr-2.cloud.okteto.net/a
 -   🔗 Uses (Git-submodules)[https://github.blog/2016-02-01-working-with-submodules/] to establish basic repository templating
 -   📝 Uses [EditorConfig](https://editorconfig.org) to establish basic code style
 -   🛠️ Uses [Pre-Commit](http://pre-commit.com) to enforce style, very basic security and more.
+-   🔭 Uses [Snyk](https://snyk.io) to establish more advanced security
 
 ## 🧪 BETA Features:
 
