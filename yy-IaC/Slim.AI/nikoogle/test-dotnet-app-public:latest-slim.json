@@ -17,7 +17,7 @@
                         "attributes": {
                             "namespace": "nikoogle",
                             "repo": "test-dotnet-app-public",
-                            "digest": "e7d42ddae6f95bccd7db301f9e505ee554662d7da2210fbdd0547314985c8e51",
+                            "digest": "3cb555888c7c335d0f75baf3144823c6ab52f230043352d53aefa3d97f55445c",
                             "version": "latest"
                         }
                     }
@@ -86,11 +86,6 @@
                     "type": "flag",
                     "name": "include-path",
                     "value": "/usr/share/dotnet"
-                },
-                {
-                    "type": "flag",
-                    "name": "env",
-                    "value": "DOTNET_USE_POLLING_FILE_WATCHER=\"true\""
                 },
                 {
                     "type": "flag",
