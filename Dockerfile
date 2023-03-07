@@ -81,15 +81,13 @@ ENV DOTNET_USE_POLLING_FILE_WATCHER=1
 
 RUN chown -R 1001:2000 /app
 
-## Sort this out to not run as root!! ##
-# # Create the appusergroup group and appuser user
-# RUN addgroup -g 2000 appusergroup && \
-#     adduser -u 1001 -G appusergroup -D appuser
+# Sort this out to not run as root!! ##
+# Create the appusergroup group and appuser user
+RUN addgroup -g 2000 appusergroup && \
+    adduser -u 1001 -G appusergroup -D appuser
 
-# # Set the user to appuser
-# USER appuser
-
-
+# Set the user to appuser
+USER appuser
 # Copy the published app from the build stage
 COPY --from=build --chown=1001 /src/out .
 

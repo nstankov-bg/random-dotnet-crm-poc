@@ -2,12 +2,13 @@ version: "3.9"
 
 services:
   app:
-    image: nikoogle/test-dotnet-app-public:latest-slim
-    platform: linux/amd64
+    image: nikoogle/test-dotnet-app-public:latest
+    platform: linux/arm64
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=true
     ports:
       - "8085:80"
+    # user: "1001"
     deploy:
       mode: replicated
       replicas: 1

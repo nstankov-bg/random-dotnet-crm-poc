@@ -14,8 +14,7 @@ export let options = {
 };
 
 export default function () {
-    const url =
-        "https://app-nstankov-bg-random-dotnet-crm-poc-pr-2.cloud.okteto.net/api/weather";
+    const url = "http://localhost:8085/api/weather";
     const response = http.get(url);
 
     check(response, {
@@ -23,5 +22,5 @@ export default function () {
         "response has data": (r) => r.json().length > 0,
     });
 
-    sleep(0.5);
+    sleep(0.1);
 }
