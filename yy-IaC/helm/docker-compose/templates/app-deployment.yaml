@@ -17,7 +17,7 @@ spec:
           image: nikoogle/test-dotnet-app-public:latest-slim
           imagePullPolicy: Always
           securityContext:
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true #Unfortunately the dotnet core image is too "Set" to run as root, from the base. Optimizing this will be out of scope, but this is a very critical thing.
             runAsNonRoot: false #Unfortunately the dotnet core image is too "Set" to run as root, from the base. Optimizing this will be out of scope, but this is a very critical thing.
             readOnlyRootFilesystem: true
             capabilities:
